@@ -1,0 +1,1 @@
+[female, fFs] = audioread('Sounds/female.wav');
