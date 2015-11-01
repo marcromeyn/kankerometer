@@ -15,4 +15,4 @@ myRecording = getaudiodata(recObj);
 %# Plot the waveform.
 plot(myRecording);
 
-audiowrite('Sounds/Training/kanker/11.wav', myRecording, fs);
+audiowrite('Sounds/Test/kanker/10.wav', myRecording, fs);
