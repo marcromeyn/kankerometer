@@ -1,6 +1,6 @@
 function hmms = createHMMs
-words = {'kanker', 'tyfus', 'tering'};
-sizes = [6, 3, 3]
+words = {'kanker', 'diabetes'};
+sizes = [5, 8];
 hmms = {};
 for i = 1:size(words,2)
     filepath = strcat('Sounds/Training/', cell2mat(words(i)));
@@ -19,5 +19,4 @@ for i = 1:size(words,2)
         index = index + 1;
     end
     hmms{i} = MakeLeftRightHMM(getOptimalStates(words{i}), GaussD, cell2mat(fvs), lData);
-%     hmms{i} = MakeLeftRightHMM(sizes(i), GaussD, cell2mat(fvs), lData);
 end
