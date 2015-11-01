@@ -2,9 +2,13 @@ filepath = 'Sounds/Training/kanker';
 dirData = dir(filepath);
 dirIndex = [dirData.isdir];
 fileList = {dirData(~dirIndex).name};
-fvs = zeros(size(fileList));
-i = 0;
+nSamples = size(fileList);
+fvs = {};
+lData = zeros(nSamples);
 for wav = fileList
     fv = getFeatureVectors(strcat(filepath, '/', cell2mat(wav)));
-    fvs
+    fvs{index} = fv;
+    lData(index) = size(fvs, 2);
+    index = index + 1;
 end
+hmm = MakeLeftRightHMM(8, GaussD, fvs,  
