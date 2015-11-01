@@ -31,7 +31,7 @@ function states = getOptimalStates(word)
         if score > bestScore
             state
             score
-            score = bestScore;
+            bestScore = score;
             states = state;
         end
     end
