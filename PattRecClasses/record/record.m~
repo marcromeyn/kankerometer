@@ -7,16 +7,10 @@ for n = 1:10
     disp('Start speaking.')
     recordblocking(recObj, 2);
     disp('End of Recording.');
-    fileName = strcat(num2str(n), '.wav')
-    
-    audiowrite('Sounds/Test/diabetes/10.wav', myRecording, fs);
+    fileName = strcat(num2str(n+10), '.wav');
+    myRecording = getaudiodata(recObj);
+    audiowrite(strcat('Sounds/Training/gei/', fileName), myRecording, fs);
+    disp('Wait for it...');
+    pause(1);
 end
-
-%# Play back the recording.
-play(recObj);
-
-myRecording = getaudiodata(recObj);
-
-%# Plot the waveform.
-plot(myRecording);
 
