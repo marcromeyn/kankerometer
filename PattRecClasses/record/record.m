@@ -8,7 +8,7 @@ for n = 1:10
     recordblocking(recObj, 2);
     disp('End of Recording.');
     fileName = strcat(num2str(n), '.wav');
-    audiowrite(strcat('Sounds/Test/diarree/', fileName), myRecording, fs);
+    audiowrite(strcat('Sounds/Test/geirriteerde/', fileName), myRecording, fs);
     disp('Wait for it...');
     pause(1);
 end
