@@ -1,6 +1,6 @@
 function testHMMs(hmms)
 % words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe'};
-words = {'kanker', 'diabetes'};
+words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe'};
 correct = 0;
 incorrect = 0;
 for i = 1:size(words,2)
@@ -21,7 +21,9 @@ for i = 1:size(words,2)
             correct = correct + 1;
         else
             incorrect = incorrect + 1;
-            strcat(' Misclassified ', words{i}, wav, ' as ', words{argmax}) 
+            disp(strcat('Misclassified ', words{i}, wav, ' as ', words{argmax}))
         end
     end
 end
+correct
+incorrect

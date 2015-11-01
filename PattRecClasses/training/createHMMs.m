@@ -1,11 +1,11 @@
 function hmms = createHMMs
-% words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe'};
-% sizes = [5, 6, 7, 9, 10, 4];
-words = {'kanker', 'diabetes'};
-sizes = [6, 9];
+words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe'};
+sizes = [6, 6, 7, 9, 10, 4];
+% words = {'kanker', 'diabetes'};
+% sizes = [6, 9];
 hmms = {};
 for i = 1:size(words,2)
-    filepath = strcat('Sounds/Test/', cell2mat(words(i)));
+    filepath = strcat('Sounds/Training/', cell2mat(words(i)));
     dirData = dir(filepath);
     dirIndex = [dirData.isdir];
     fileList = {dirData(~dirIndex).name};
@@ -14,7 +14,7 @@ for i = 1:size(words,2)
     lData = zeros(nSamples);    
     index = 1;
     for wav = fileList
-        strcat(filepath, '/', cell2mat(wav))
+%         strcat(filepath, '/', cell2mat(wav))
         fv = getFeatureVectors(strcat(filepath, '/', cell2mat(wav)));
         fvs{index} = fv;
         lData(index) = size(fv, 2);

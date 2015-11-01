@@ -8,7 +8,8 @@ for n = 1:10
     recordblocking(recObj, 2);
     disp('End of Recording.');
     fileName = strcat(num2str(n+10), '.wav');
-    audiowrite(strcat('Sounds/Training/tyfus/', fileName), myRecording, fs);
+    myRecording = getaudiodata(recObj);
+    audiowrite(strcat('Sounds/Test/tyfus/', fileName), myRecording, fs);
     disp('Wait for it...');
     pause(1);
 end

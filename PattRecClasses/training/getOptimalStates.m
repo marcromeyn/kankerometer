@@ -20,15 +20,12 @@ function states = getOptimalStates(word)
         pX = zeros(size(hmm.OutputDistr,1), size(fv, 2));
         score = 0;
         for wav = fileList
-%             for j = 1:size(pX, 1)
-%                 for k = 1:size(pX, 2)
-%                     pX(j,k) = prob(hmm.OutputDistr(j), fv(:,k));
-%                 end
-%             end
-            logprob = logprob(hmm, x);
-            score = score + prod(c);
+            prob = logprob(hmm, fv);
+            score = score + prob;
         end
-        if score > bestScore
+        if score > bestScore || score == 0
+            states
+            bestScore
             bestScore = score;
             states = state;
         end
