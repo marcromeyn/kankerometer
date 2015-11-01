@@ -9,7 +9,7 @@ function states = getOptimalStates(word)
     index = 1;
     bestScore = 0;
     states = 0;
-    for state = 2:10
+    for state = 2:15
         for wav = fileList
             fv = getFeatureVectors(strcat(filepath, '/', cell2mat(wav)));
             fvs{index} = fv;
@@ -29,8 +29,6 @@ function states = getOptimalStates(word)
             score = score + prod(c);
         end
         if score > bestScore
-            state
-            score
             bestScore = score;
             states = state;
         end
