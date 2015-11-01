@@ -13,7 +13,3 @@ for n = 1:10
     pause(1);
 end
 
-%# Play back the recording.
-% play(recObj);
-% 
-% myRecording = getaudiodata(recObj);
