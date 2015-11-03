@@ -1,6 +1,6 @@
 function hmms = createHMMs
-words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe'};
-sizes = [6, 6, 7, 9, 10, 4];
+words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe', 'tyfus', 'tering', 'pijn','diabetes'};
+sizes = [6, 6, 7, 9, 10, 4, 6, 6, 5, 9];
 % words = {'kanker', 'diabetes'};
 % sizes = [6, 9];
 hmms = {};

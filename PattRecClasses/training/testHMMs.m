@@ -1,6 +1,5 @@
 function testHMMs(hmms)
-% words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe'};
-words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe'};
+words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe', 'tyfus', 'tering', 'pijn','diabetes'};
 correct = 0;
 incorrect = 0;
 for i = 1:size(words,2)
