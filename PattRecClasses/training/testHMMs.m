@@ -1,13 +1,11 @@
 function testHMMs(hmms)
-words = {'kanker','griep', 'diarree', 'hoofdpijn', 'geirriteerde','moe', 'tyfus', 'tering', 'pijn','diabetes'};
-correct = 0;
-incorrect = 0;
+words = {'kanker','moe', 'diabetes', 'tyfus'};
+confMatrix = zeros(size(hmms), size(hmms));
 for i = 1:size(words,2)
-    filepath = strcat('Sounds/Test/', cell2mat(words(i)));
+    filepath = strcat('Sounds/Test_new/', cell2mat(words(i)));
     dirData = dir(filepath);
     dirIndex = [dirData.isdir];
     fileList = {dirData(~dirIndex).name};
-    fv_old = getFeatureVectors(strcat(filepath, '/1.wav'));
     for wav = fileList
         fv = getFeatureVectors(strcat(filepath, '/', cell2mat(wav)));
         votes = zeros(size(hmms));
@@ -17,12 +15,13 @@ for i = 1:size(words,2)
         end
         [argvalue, argmax] = max(votes);
         if argmax == i
-            correct = correct + 1;
+            confMatrix(i, i) = confMatrix(i, i) + 1;
         else
-            incorrect = incorrect + 1;
+            confMatrix(i, argmax) = confMatrix(i, argmax) + 1;
+            confMatrix(argmax, i) = confMatrix(argmax, i) + 1;
             disp(strcat('Misclassified ', words{i}, wav, ' as ', words{argmax}))
         end
     end
 end
-correct
-incorrect
+words
+confMatrix
